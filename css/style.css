@@ -1,0 +1,346 @@
+@charset "utf-8";
+
+/*   Common styles   */
+
+html, body {
+    height: 100%;
+}
+body {
+    margin: auto;
+    width: 100%;
+    background-color: #F5F2E9;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 12px;
+    color: #333;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+}
+.clearfix:after {
+    content: '';
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+}
+[class^="icon-"] {
+    display: block;
+    background-image: url(../img/icons.png);
+    cursor: pointer;
+}
+
+
+/*   Training header styles   */
+
+.training-header {
+    padding: 20px 30px 27px 30px;
+}
+.icon-back {
+    float: left;
+    margin-top: 8px;
+    width: 22px;
+    height: 13px;
+    background-position: -47px 0;
+}
+.training-title {
+    font-family: 'Segoe UI', 'Open Sans', Arial, sans-serif;
+    font-size: 25px;
+    font-weight: 200;
+    line-height: 1.15;
+    margin-left: 45px;
+}
+.icon-settings {
+    float: right;
+    width: 23px;
+    height: 21px;
+    margin: 7px 0 0 20px;
+    background-position: -24px 0;
+    opacity: 0.5;
+}
+.icon-settings:hover {
+    opacity: 0.75;
+}
+.training-progress-bar {
+    height: 4px;
+    background-color: rgba(51, 51, 51, 0.1);
+}
+.training-progress-done {
+    background-color: #77A56D;
+    width: 20%;
+    height: 100%;
+}
+
+
+/*   Training content styles   */
+
+.training-content {
+    position: relative;
+    padding: 30px 30px 140px 30px;
+    text-align: center;
+    overflow: hidden;
+}
+.icon-delete {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 24px;
+    height: 24px;
+    background-position: 0 0;
+    opacity: 0.1;
+}
+.icon-delete:hover {
+    opacity: 0.5;
+}
+
+/*   Training phrase styles   */
+
+.training-phrase {
+    margin: 65px 0 20px 0;
+    font-size: 0;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+.training-phrase-element {
+    display: inline-block;
+    min-width: 35px;
+    max-width: 100%;
+    margin: 5px;
+    text-align: center;
+    font-size: 60px;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-perspective: 700px;
+    perspective: 700px;
+    -webkit-tap-highlight-color: transparent;
+}
+.training-phrase-word {
+    padding: 5px 3px 10px 3px;
+    font-size: 100%;
+    opacity: 0.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.curtain {
+    background-color: #FFF;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 10;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: translate3d(0, 0, 5px) rotate3d(1, 0, 0, 0deg);
+    transform: translate3d(0, 0, 5px) rotate3d(1, 0, 0, 0deg);
+    transition: all 0.2s ease;
+}
+.curtain-ajar .curtain {
+    -webkit-transform: translate3d(0, 0, 5px) rotate3d(1, 0, 0, 50deg);
+    transform: translate3d(0, 0, 5px) rotate3d(1, 0, 0, 50deg);
+}
+.curtain-open .curtain {
+    -webkit-transform: translate3d(0, 0, 5px) rotate3d(1, 0, 0, 80deg);
+    transform: translate3d(0, 0, 5px) rotate3d(1, 0, 0, 80deg);
+}
+.curtain:before {
+    content: '?';
+    display: block;
+    background-color: rgba(152, 152, 152, 0.3);
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    font-family: 'Segoe UI', 'Open Sans', Arial, sans-serif;
+    color: #FFF;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -12px 0 0 -12px;
+}
+.curtain-shadow {
+    background-color: rgba(0, 0, 0, 0.1);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: -7px;
+    z-index: 1;
+    -webkit-transform-origin: 0 100%;
+    transform-origin: 0 100%;
+    -webkit-transform: translate3d(0, 0, -50px) rotate3d(1, 0, 0, 0deg);
+    transform: translate3d(0, 0, -50px) rotate3d(1, 0, 0, 0deg);
+    transition: all 0.2s ease;
+}
+.curtain-ajar .curtain-shadow {
+    -webkit-transform: translate3d(0, 0, -50px) rotate3d(1, 0, 0, -63deg);
+    transform: translate3d(0, 0, -50px) rotate3d(1, 0, 0, -63deg);
+}
+.curtain-open .curtain-shadow {
+    -webkit-transform: translate3d(0, 0, 0) rotate3d(1, 0, 0, 0deg);
+    transform: translate3d(0, 0, 0) rotate3d(1, 0, 0, 0deg);
+    background-color: rgba(0, 0, 0, 0.05);
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.1) 5%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 5%, rgba(0, 0, 0, 0) 100%);
+}
+.training-phrase-translation {
+    font-size: 25px;
+    line-height: 1.2;
+}
+
+
+/*   Microphone button styles   */
+
+.microphone-btn {
+    margin: 35px auto 30px auto;
+    background-color: #2B7EC1;
+    width: 150px;
+    height: 147px;
+    border-radius: 50%;
+    box-shadow: 0 4px 0 #205A87, 0 8px 0 rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 0;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color:transparent
+}
+.microphone-btn:not(.microphone-processing):hover {
+    background-color: #3989CD;
+}
+.microphone-btn:not(.microphone-processing):hover .microphone-icon {
+    -webkit-transform: scale(1.15);
+    transform: scale(1.15);
+}
+.microphone-icon {
+    display: block;
+    background-color: #FFF;
+    width: 45px;
+    height: 82px;
+    border-radius: 22px;
+    margin: 0 auto;
+    position: relative;
+    top: 25px;
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1);
+}
+.microphone-icon:after {
+    content: '';
+    display: block;
+    background-color: #FFF;
+    height: 35px;
+    width: 6px;
+    position: absolute;
+    top: 100%;
+    left: 19px;
+    margin-top: 5px;
+}
+.microphone-icon-base {
+    display: block;
+    width: 55px;
+    height: 46px;
+    border: 6px solid #FFF;
+    border-top: none;
+    border-radius: 0 0 32px 32px;
+    position: absolute;
+    top: 41px;
+    left: -11px;
+    box-shadow: 0 5px 0 0 rgba(0, 0, 0, 0.1);
+}
+.microphone-icon-base:before,
+.microphone-icon-base:after {
+    content: '';
+    display: block;
+    background-color: #FFF;
+    width: 9px;
+    height: 5px;
+    position: absolute;
+    top: 0;
+    box-shadow: 0 3px 0 rgba(0, 0, 0, 0.1);
+    z-index: -1;
+}
+.microphone-icon-base:before {
+    left: -9px;
+}
+.microphone-icon-base:after {
+    right: -9px;
+}
+.training-instruction {
+    font-family: 'Segoe UI', 'Open Sans', Arial, sans-serif;
+    font-size: 18px;
+    line-height: 20px;
+    opacity: 0.5;
+}
+
+
+/*   Microphone processing animation   */
+
+.microphone-processing {
+    box-shadow: none;
+}
+.microphone-processing:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent;
+    border-left-color: rgba(255, 255, 255, 0.95);
+    border-radius: 50%;
+    -webkit-animation: mic-processing 1.5s infinite linear;
+    animation: mic-processing 1.5s infinite linear;
+}
+@-webkit-keyframes mic-processing {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes mic-processing {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@media (max-width: 480px) {
+    .icon-delete {
+        top: auto;
+        bottom: 50px;
+    }
+    .training-phrase {
+        margin-top: 10px;
+    }
+    .training-phrase-word {
+        font-size: 65%;
+    }
+    .curtain:before {
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        margin: -10px 0 0 -10px;
+        font-size: 16px;
+    }
+    .curtain-shadow {
+        bottom: -5px;
+    }
+}
